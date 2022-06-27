@@ -87,10 +87,6 @@ function reload(arr) {
     function sortArray(x, y){
         return x.title.localeCompare(y.title, 'fr', {ignorePunctuation: true});
     }
-    // __________________Show all items button___________BUT IT DOES NOT WORK
-    showAll.onclick = () => {
-        reload(arr)
-    }
 }
 // ____________Adder items function__________________
 adderBtn.onclick = () => {
@@ -112,7 +108,6 @@ for (let form of forms) {
     form.onsubmit = (event) => {
         event.preventDefault()
         submit(form, arr)
-        reload(arr)
     }
 }
 function submit (form, arr) {
@@ -121,7 +116,7 @@ function submit (form, arr) {
     fm.forEach((value, key) => {
         item[key] = value
     })
-    if (form.name.toLowerCase() === 'adder') {
+    if (form.name === 'adder') {
         let errs = []
         formAdderInputs.forEach(input => {
             if (input.value.length === 0) {
@@ -129,12 +124,14 @@ function submit (form, arr) {
             }
         })
         errs.length === 0 ? arr.push(item) : console.log('Fill the missed fields!')
-        reload(arr)
-    } else if (form.name.toLowerCase() === 'sort') {
+    } else if (form.name === 'sort') {
         let filtered = arr.filter(arrItem => arrItem.price <= item.to && arrItem.price >= item.from)
         reload(filtered)
     }   
-    console.log(form.name);
+    // __________________Show all items button___________reload Events
+    showAll.onclick = () => {
+        reload(arr)
+    }
 }
 // _____________End of the page (reload is called zone)__________________
 reload(arr)
