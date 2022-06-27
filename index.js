@@ -108,6 +108,7 @@ for (let form of forms) {
     form.onsubmit = (event) => {
         event.preventDefault()
         submit(form, arr)
+        reload(arr)
     }
 }
 function submit (form, arr) {
