@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Market Goods Sorting</title>
-</head> 
+</head>
 <body>
+    <div class="modal__changer__bg changerCloser"></div>
     <div class="modal__adder__bg closer"></div>
     <div class="modal__adder__container">
         <form class="modal__adder" name="adder">
@@ -19,43 +20,44 @@
                 <span>Цена товара</span>
                 <input type="number" placeholder="1323" name="price">
             </div>
+
             <button class="finish">Добавить</button>
         </form>
         <button class="back closer">Назад</button>
     </div>
     <div class="modal__changer">
-        <form class="modal__changer__form" name="adder">
-            <div class="itemForChange"></div>
+        <div class="itemForChange"></div>
+        <form class="modal__changer__form" name="changer">
             <div class="itemName item">
                 <span>Название товара</span>
-                <input type="text" placeholder="Курица" name="title">
+                <input type="text" class="current__name" placeholder="Курица" name="title">
             </div>
             <div class="itemPrice item">
                 <span>Цена товара</span>
-                <input type="number" placeholder="1323" name="price">
+                <input type="number" class="current__price" placeholder="1323" name="price">
             </div>
-            <button class="finish">Добавить</button>
+            <button class="save">Изменить</button>
         </form>
-        <button class="back closer">Назад</button>
+        <button class="back changerCloser">Назад</button>
     </div>
     <main>
         <div class="main__container">
             <div class="main__container__heading">
                 <button class="goods__adder">Добавить новый товар</button>
             </div>
-            <form class="sort" name="sort">
+            <div class="sort"><form class="sort" name="sort">
                 <div class="from sorter">
                     <label for="fr">Товары от:</label>
-                    <input id="fr" type="number" placeholder="$100">
+                    <input id="fr" type="number" name="from" placeholder="$100">
                 </div>
                 <div class="to sorter">
                     <label for="to">Товары до:</label>
-                    <input id="to" type="number" placeholder="$500">
+                    <input id="to" type="number" name="to" placeholder="$500">
                 </div>
                 <button class="show">Показать</button>
-                <button class="alpabet">Показать по алфавиту</button>
-                <button class="price">Показать по цене</button>
             </form>
+            <button class="alphabet">Показать по алфавиту</button>
+            <button class="showAll">Показать все</button></div>
             <div class="main__content__container container__content">
                
             </div>
